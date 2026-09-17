@@ -1,10 +1,10 @@
-const {test, expect} =require('@playwright/test');
+const { test, expect } = require('@playwright/test');
 
 const LoginPage = require('../pages/LoginPage');
 const ProductsPage = require('../pages/ProductsPage');
 const CartPage = require('../pages/CartPage');
 
-test('Product filtering and cart operations', async ({page}) =>{
+test('Product filtering and cart operations', async ({ page }) => {
 
     //Create Page objects
     const loginPage = new LoginPage(page);
@@ -20,7 +20,7 @@ test('Product filtering and cart operations', async ({page}) =>{
     await expect(page.locator('.title')).toHaveText('Products');
 
     // 3. Get and print all product names
-    const products=await productsPage.getProductNames();
+    const products = await productsPage.getProductNames();
 
     console.log(products);
 
@@ -28,7 +28,7 @@ test('Product filtering and cart operations', async ({page}) =>{
     await productsPage.selectFilter('lohi');
 
     // 5. Verify Displayed products
-    const displayedProducts= await productsPage.getDisplayProducts();
+    const displayedProducts = await productsPage.getDisplayProducts();
 
     console.log('Products after filtering:');
     console.log(displayedProducts);
@@ -44,7 +44,7 @@ test('Product filtering and cart operations', async ({page}) =>{
 
     // Verify Product name
     await expect(cartPage.cartItemNames).toHaveText('Sauce Labs Bolt T-Shirt');
-    
+
     //Verify Quantity
     await expect(cartPage.quantity).toHaveText('1');
 

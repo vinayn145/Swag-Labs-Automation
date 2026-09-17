@@ -1,7 +1,7 @@
 const {test, expect} = require('@playwright/test');
 
 test('SauseDemo Login', async({page}) =>{
-   //Regular syntax
+   //Regular syntax,
 //    await page.goto("https://www.saucedemo.com/");
 //    await page.locator('#user-name').fill('standard_user');
 //    await page.locator('#password').fill('secret_sauce');
@@ -19,7 +19,7 @@ test('SauseDemo Login', async({page}) =>{
     await page.goto("https://www.saucedemo.com/");
 
     // Username
-     await page.getByRole('textbox', {name:'Username'}).fill('standard_user');
+    await page.getByRole('textbox', {name:'Username'}).fill('standard_user');
 
     // Password
     await page.getByRole('textbox', {name:'Password'}).fill('secret_sauce');

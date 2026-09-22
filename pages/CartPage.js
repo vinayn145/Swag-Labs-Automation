@@ -4,6 +4,7 @@ class CartPage{
 
         this.cartItems=page.locator('.cart_item');
         this.cartItemNames= page.locator('.cart_item .inventory_item_name');
+        this.cartItemPrice=page.locator('.cart_item .inventory_item_price');
         this.quantity= page.locator('.cart_quantity');
 
         this.removeButton= page.getByRole('button', {name: 'Remove'});

@@ -3,6 +3,7 @@ class ProductsPage {
         this.page = page;
 
         // page locators
+        this.pageTitle= page.getByText('Products');
         this.productNames = page.locator('.inventory_item_name');
         this.productItems = page.locator('.inventory_item');
         this.productPrices = page.locator('.inventory_item_price');
@@ -10,6 +11,11 @@ class ProductsPage {
         this.sortDropdown = page.locator('.product_sort_container');
         this.cartButton = page.locator('.shopping_cart_link');
         this.cartBadge = page.locator('.shopping_cart_badge');
+    }
+
+    //Product counts
+    async getProductCount(){
+        return await this.productItems.count();
     }
 
     //Get all product names
@@ -56,6 +62,10 @@ class ProductsPage {
         .innerText();
     }
 
+    async sortProducts(option){
+        await this.sortDropdown.selectOption(option);
+    }
+    
     async getProductByName(productName){
         return await this.productItems.filter({ hasText: productName });
     }

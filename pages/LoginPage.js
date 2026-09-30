@@ -6,7 +6,8 @@ class LoginPage{
         this.username= page.getByRole('textbox', {name:'Username'});
         this.password=page.getByRole('textbox', {name:'Password'});
         this.loginButton=page.getByRole('button', {name: 'Login'});
-   
+        this.errorMessage = page.locator('[data-test="error"]');
+
     }
 
     async navigate(){
@@ -18,6 +19,10 @@ class LoginPage{
         await this.password.fill(password);
         await this.loginButton.click();
     }
-}
+
+    async getErrorMessage(){
+        return await this.errorMessage.innerText();
+    }
+}  
 
 module.exports = LoginPage;
